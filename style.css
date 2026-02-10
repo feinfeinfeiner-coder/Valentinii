@@ -14,7 +14,7 @@ body {
     flex-direction: column; 
     align-items: center;    
     text-align: center;
-    width: 100%; /* Verbreed naar 100% voor betere centrering */
+    width: 100%;
 }
 
 .hoofdfoto {
@@ -30,7 +30,7 @@ h1 {
     font-size: 2.5rem;
     color: #333;
     margin: 10px 0;
-    width: 100%; /* Zorgt dat de tekst de volle breedte gebruikt om te centreren */
+    width: 100%;
 }
 
 .knop-sectie {
@@ -50,26 +50,111 @@ h1 {
     border: none;
     border-radius: 50px;
     transition: transform 0.2s;
-    /* Margin hier verwijderd om scheve centrering te voorkomen */
 }
 
 .ja {
     background-color: #ff4d6d;
     color: white;
     z-index: 10;
-    /* Pas dit getal aan om hem op de juiste plek te zetten: */
-    margin-right: 120px; 
+}
+
+/* --- SPECIFIEKE LAYOUT FIXES PER SCHERM --- */
+
+#scherm1 .ja, #scherm3 .ja {
+    margin-right: 0;
+}
+
+#scherm2 .knop-sectie {
+    gap: 20px;
+}
+#scherm2 .nee {
+    position: static;
+    transform: none;
+}
+
+/* --- SCHERM 4: DE KLAP OP DE VUURPIJL --- */
+#scherm4 .knop {
+    padding: 22px 45px;
+    font-size: 1.8rem;
+    border-radius: 60px;
+}
+
+#scherm4 .ja {
+    margin-right: 300px; /* Verder uit elkaar gezet zoals gevraagd */
 }
 
 .nee {
     background-color: #ccc;
     color: #333;
     position: absolute;
-    /* We zetten de ne-knop standaard rechts van de ja-knop zonder de ja-knop te duwen */
     left: calc(50% + 75px); 
-    top: 50%; 
+    top: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
     transition: opacity 0.3s ease;
     white-space: nowrap;
+}
+
+/* Startpositie voor de NEE knop op scherm 4 */
+#scherm4 .nee {
+    left: calc(50% + 150px); /* Iets verder naar rechts gezet voor balans */
+}
+
+/* Het Victory Scherm met de nieuwe hartjes-achtergrond */
+#scherm5 {
+    /* De linear-gradient zorgt voor de donkere filter (0.4 = 40% zwart) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('https://cdn.create.vista.com/downloads/03897758-cb0d-431f-88dd-104854d26684_1024.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Geen vierkant, rand of schaduw om de laatste GIF */
+#scherm5 .hoofdfoto {
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    max-width: 300px;
+}
+
+.victory-tekst {
+    font-size: 3.5rem;
+    color: #ff4d6d;
+    text-align: center;
+    /* De schaduw is nu wit zodat de tekst "gloeit" op de donkere achtergrond */
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    z-index: 20;
+    font-weight: bold;
+}
+.kleine-tekst {
+    font-size: 0.8rem; /* Lekker klein */
+    color: rgba(255, 255, 255, 0.6); /* Licht doorzichtig wit */
+    position: absolute;
+    bottom: 20px;
+    font-style: italic;
+    z-index: 20;
+}
+
+/* De rest van je scherm5 styling (met de filter die we eerder maakten) */
+#scherm5 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('https://cdn.create.vista.com/downloads/03897758-cb0d-431f-88dd-104854d26684_1024.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    width: 100vw;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Nodig om de kleine tekst onderaan te plakken */
+    overflow: hidden;
 }
