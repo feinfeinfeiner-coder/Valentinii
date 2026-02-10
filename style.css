@@ -1,0 +1,75 @@
+body {
+    background-color: white;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;    
+    text-align: center;
+    width: 100%; /* Verbreed naar 100% voor betere centrering */
+}
+
+.hoofdfoto {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin: 10px 0;
+    width: 100%; /* Zorgt dat de tekst de volle breedte gebruikt om te centreren */
+}
+
+.knop-sectie {
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+    height: 100px; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.knop {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    transition: transform 0.2s;
+    /* Margin hier verwijderd om scheve centrering te voorkomen */
+}
+
+.ja {
+    background-color: #ff4d6d;
+    color: white;
+    z-index: 10;
+    /* Pas dit getal aan om hem op de juiste plek te zetten: */
+    margin-right: 120px; 
+}
+
+.nee {
+    background-color: #ccc;
+    color: #333;
+    position: absolute;
+    /* We zetten de ne-knop standaard rechts van de ja-knop zonder de ja-knop te duwen */
+    left: calc(50% + 75px); 
+    top: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
